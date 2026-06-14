@@ -29,8 +29,14 @@ st.divider()
 with st.expander("Register"):
     try:
         if authenticator.register_user(location="main", clear_on_submit=True):
-                with open('config.yaml', 'w') as file:
-                    yaml.dump(config, file, default_flow_style=False)
+            st.success('User registered successfully!')
+
+            for username, data in config['credentials']['usernames'].items():
+                if 'roles' in data and data['roles'] is None:
+                    del data['roles']
+
+            with open('config.yaml', 'w') as file:
+                yaml.dump(config, file, default_flow_style=False)
     except Exception as e:
         st.error(e)
 
