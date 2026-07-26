@@ -9,8 +9,8 @@ from joblib import load
 import streamlit_authenticator as stauth
 from streamlit_authenticator.utilities.hasher import Hasher
 
-# if "pred" not in st.session_state:
-#     st.session_state["pred"] = None
+if "pred" not in st.session_state:
+    st.session_state["pred"] = None
 
 # with open("config.yaml") as file:
 #     config = yaml.load(stream=file, Loader=SafeLoader)
