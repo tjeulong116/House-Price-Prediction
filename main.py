@@ -150,7 +150,9 @@ def display_chart(df: pd.DataFrame):
 # elif st.session_state["authentication_status"] is None:
 #     pass
 
-authenticator.logout(location="sidebar")
+#authenticator.logout(location="sidebar")
+
+
 st.title("House price calculator")
 
 df = read_data()
